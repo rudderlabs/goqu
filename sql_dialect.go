@@ -4,9 +4,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/doug-martin/goqu/v9/exp"
-	"github.com/doug-martin/goqu/v9/internal/sb"
-	"github.com/doug-martin/goqu/v9/sqlgen"
+	"github.com/rudderlabs/goqu/goqu/v10/exp"
+	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
+	"github.com/rudderlabs/goqu/goqu/v10/sqlgen"
 )
 
 type (

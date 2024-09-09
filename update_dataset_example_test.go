@@ -5,9 +5,9 @@ import (
 	dbsql "database/sql"
 	"fmt"
 
-	"github.com/doug-martin/goqu/v9"
-	_ "github.com/doug-martin/goqu/v9/dialect/mysql"
-	"github.com/doug-martin/goqu/v9/exp"
+	"github.com/rudderlabs/goqu/goqu/v10"
+	_ "github.com/rudderlabs/goqu/goqu/v10/dialect/mysql"
+	"github.com/rudderlabs/goqu/goqu/v10/exp"
 )
 
 func ExampleUpdate_withStruct() {

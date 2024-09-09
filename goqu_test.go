@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/doug-martin/goqu/v9"
+	"github.com/rudderlabs/goqu/goqu/v10"
 	"github.com/stretchr/testify/suite"
 )
 
