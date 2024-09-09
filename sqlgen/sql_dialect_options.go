@@ -195,6 +195,8 @@ type (
 		PeriodRune rune
 		// Set to true to include positional argument numbers when creating a prepared statement (Default=false)
 		IncludePlaceholderNum bool
+		// The literal value to wrap timestamps with when interpolating time.Time, e.g. from_iso8601_timestamp(?) (DEFAULT="")
+		TimeFunctionLiteral string
 		// The time format to use when serializing time.Time (DEFAULT=time.RFC3339Nano)
 		TimeFormat string
 		// A map used to look up BooleanOperations and their SQL equivalents
