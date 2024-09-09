@@ -65,6 +65,12 @@ func errLateralNotSupported(dialect string) error {
 	return errors.New("dialect does not support lateral expressions [dialect=%s]", dialect)
 }
 
+func GenerateExpressionSQL(esg ExpressionSQLGenerator, isPrepared bool, val interface{}) (sql string, args []interface{}, err error) {
+	b := sb.NewSQLBuilder(isPrepared)
+	esg.Generate(b, val)
+	return b.ToSQL()
+}
+
 func NewExpressionSQLGenerator(dialect string, do *SQLDialectOptions) ExpressionSQLGenerator {
 	return &expressionSQLGenerator{dialect: dialect, dialectOptions: do}
 }
