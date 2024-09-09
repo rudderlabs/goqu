@@ -4,7 +4,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
+	"github.com/rudderlabs/goqu/v10/internal/errors"
 )
 
 type (

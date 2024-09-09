@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/rudderlabs/goqu/goqu/v10/sqlgen"
+	"github.com/rudderlabs/goqu/v10/sqlgen"
 )
 
 type sqlFragmentTypeSuite struct {

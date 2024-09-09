@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"sync"
 
-	"github.com/rudderlabs/goqu/goqu/v10/exec"
+	"github.com/rudderlabs/goqu/v10/exec"
 )
 
 type (
@@ -44,8 +44,8 @@ type (
 //	import (
 //	    "database/sql"
 //	    "fmt"
-//	    "github.com/rudderlabs/goqu/goqu/v10"
-//	    _ "github.com/rudderlabs/goqu/goqu/v10/dialect/postgres"
+//	    "github.com/rudderlabs/goqu/v10"
+//	    _ "github.com/rudderlabs/goqu/v10/dialect/postgres"
 //	    _ "github.com/lib/pq"
 //	)
 //

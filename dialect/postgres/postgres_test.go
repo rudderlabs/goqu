@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rudderlabs/goqu/goqu/v10"
+	"github.com/rudderlabs/goqu/v10"
 
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/suite"

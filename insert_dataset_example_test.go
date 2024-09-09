@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/rudderlabs/goqu/goqu/v10"
-	_ "github.com/rudderlabs/goqu/goqu/v10/dialect/postgres"
+	"github.com/rudderlabs/goqu/v10"
+	_ "github.com/rudderlabs/goqu/v10/dialect/postgres"
 )
 
 func ExampleInsert_goquRecord() {

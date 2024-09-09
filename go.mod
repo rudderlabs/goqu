@@ -1,4 +1,4 @@
-module github.com/rudderlabs/goqu/goqu/v10
+module github.com/rudderlabs/goqu/v10
 
 go 1.22.5
 

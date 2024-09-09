@@ -7,9 +7,9 @@
 ```
 [![GitHub tag](https://img.shields.io/github/tag/doug-martin/goqu.svg?style=flat)](https://github.com/doug-martin/goqu/releases)
 [![Test](https://github.com/doug-martin/goqu/workflows/Test/badge.svg?branch=master&event=push)](https://github.com/doug-martin/goqu/actions?query=workflow%3ATest+and+branch%3Amaster+)
-[![Go Reference](https://pkg.go.dev/badge/github.com/rudderlabs/goqu/goqu/v10.svg)](https://pkg.go.dev/github.com/rudderlabs/goqu/goqu/v10)
+[![Go Reference](https://pkg.go.dev/badge/github.com/rudderlabs/goqu/v10.svg)](https://pkg.go.dev/github.com/rudderlabs/goqu/v10)
 [![codecov](https://codecov.io/gh/doug-martin/goqu/branch/master/graph/badge.svg)](https://codecov.io/gh/doug-martin/goqu)
-[![Go Report Card](https://goreportcard.com/badge/github.com/rudderlabs/goqu/goqu/v10)](https://goreportcard.com/report/github.com/rudderlabs/goqu/goqu/v10)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rudderlabs/goqu/v10)](https://goreportcard.com/report/github.com/rudderlabs/goqu/v10)
 
 `goqu` is an expressive SQL builder and executor
     
@@ -21,12 +21,12 @@ If you are upgrading from an older version please read the [Migrating Between Ve
 If using go modules.
 
 ```sh
-go get -u github.com/rudderlabs/goqu/goqu/v10
+go get -u github.com/rudderlabs/goqu/v10
 ```
 
 If you are not using go modules...
 
-**NOTE** You should still be able to use this package if you are using go version `>v1.10` but, you will need to drop the version from the package. `import "github.com/rudderlabs/goqu/goqu/v10` -> `import "github.com/doug-martin/goqu"`
+**NOTE** You should still be able to use this package if you are using go version `>v1.10` but, you will need to drop the version from the package. `import "github.com/rudderlabs/goqu/v10` -> `import "github.com/doug-martin/goqu"`
 
 ```sh
 go get -u github.com/doug-martin/goqu

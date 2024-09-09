@@ -1,9 +1,9 @@
 package goqu
 
 import (
-	"github.com/rudderlabs/goqu/goqu/v10/exec"
-	"github.com/rudderlabs/goqu/goqu/v10/exp"
-	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
+	"github.com/rudderlabs/goqu/v10/exec"
+	"github.com/rudderlabs/goqu/v10/exp"
+	"github.com/rudderlabs/goqu/v10/internal/sb"
 )
 
 type TruncateDataset struct {
