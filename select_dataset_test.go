@@ -4,13 +4,14 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
+	"github.com/stretchr/testify/mock"
+	"github.com/stretchr/testify/suite"
+
 	"github.com/rudderlabs/goqu/goqu/v10"
 	"github.com/rudderlabs/goqu/goqu/v10/exp"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
 	"github.com/rudderlabs/goqu/goqu/v10/mocks"
-	"github.com/stretchr/testify/mock"
-	"github.com/stretchr/testify/suite"
 )
 
 type (

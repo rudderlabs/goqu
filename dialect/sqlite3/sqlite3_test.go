@@ -341,7 +341,7 @@ func (st *sqlite3Suite) TestInsert_returning() {
 	now := time.Now()
 	e := entry{Int: 10, Float: 1.000000, String: "1.000000", Time: now, Bool: true, Bytes: []byte("1.000000")}
 	_, err := ds.Insert().Rows(e).Returning(goqu.Star()).Executor().ScanStruct(&e)
-	st.Error(err)
+	st.NoError(err)
 }
 
 func (st *sqlite3Suite) TestUpdate() {

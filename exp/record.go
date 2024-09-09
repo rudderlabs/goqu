@@ -62,7 +62,6 @@ func getRecordValue(val reflect.Value, f util.ColumnData) interface{} {
 		return Default()
 	} else if val.IsValid() {
 		return val.Interface()
-	} else {
-		return reflect.Zero(f.GoType).Interface()
 	}
+	return reflect.Zero(f.GoType).Interface()
 }

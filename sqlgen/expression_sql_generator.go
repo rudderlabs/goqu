@@ -145,6 +145,7 @@ func (esg *expressionSQLGenerator) reflectSQL(b sb.SQLBuilder, val interface{}) 
 	case util.IsInt(valKind):
 		esg.Generate(b, v.Int())
 	case util.IsUint(valKind):
+		//nolint: gosec
 		esg.Generate(b, int64(v.Uint()))
 	case util.IsFloat(valKind):
 		esg.Generate(b, v.Float())

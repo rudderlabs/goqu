@@ -9,7 +9,8 @@ type sqlWindowFunctionExpression struct {
 func NewSQLWindowFunctionExpression(
 	fn SQLFunctionExpression,
 	windowName IdentifierExpression,
-	window WindowExpression) SQLWindowFunctionExpression {
+	window WindowExpression,
+) SQLWindowFunctionExpression {
 	return sqlWindowFunctionExpression{
 		fn:         fn,
 		windowName: windowName,

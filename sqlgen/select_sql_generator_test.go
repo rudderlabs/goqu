@@ -3,12 +3,13 @@ package sqlgen_test
 import (
 	"testing"
 
+	"github.com/stretchr/testify/suite"
+
 	"github.com/rudderlabs/goqu/goqu/v10"
 	"github.com/rudderlabs/goqu/goqu/v10/exp"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
 	"github.com/rudderlabs/goqu/goqu/v10/sqlgen"
-	"github.com/stretchr/testify/suite"
 )
 
 type (

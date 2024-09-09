@@ -4,9 +4,10 @@ import (
 	"regexp"
 	"testing"
 
+	"github.com/stretchr/testify/suite"
+
 	"github.com/rudderlabs/goqu/goqu/v10"
 	"github.com/rudderlabs/goqu/goqu/v10/exp"
-	"github.com/stretchr/testify/suite"
 )
 
 type (

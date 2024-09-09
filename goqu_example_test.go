@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/DATA-DOG/go-sqlmock"
+
 	"github.com/rudderlabs/goqu/goqu/v10"
 	_ "github.com/rudderlabs/goqu/goqu/v10/dialect/mysql"
 	_ "github.com/rudderlabs/goqu/goqu/v10/dialect/postgres"

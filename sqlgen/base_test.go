@@ -1,8 +1,9 @@
 package sqlgen_test
 
 import (
-	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
 	"github.com/stretchr/testify/suite"
+
+	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
 )
 
 type baseSQLGeneratorSuite struct {

@@ -7,11 +7,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/suite"
+
 	"github.com/rudderlabs/goqu/goqu/v10/exp"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
 	"github.com/rudderlabs/goqu/goqu/v10/sqlgen"
-	"github.com/stretchr/testify/suite"
 )
 
 var emptyArgs = make([]interface{}, 0)
@@ -28,7 +29,8 @@ func newTestAppendableExpression(
 	sql string,
 	args []interface{},
 	err error,
-	alias exp.IdentifierExpression) exp.AppendableExpression {
+	alias exp.IdentifierExpression,
+) exp.AppendableExpression {
 	return &testAppendableExpression{sql: sql, args: args, err: err, alias: alias}
 }
 
@@ -479,10 +481,13 @@ func (esgs *expressionSQLGeneratorSuite) TestGenerate_BooleanExpressionAliased()
 	esgs.assertCases(
 		sqlgen.NewExpressionSQLGenerator("test", sqlgen.DefaultDialectOptions()),
 		expressionTestCase{val: ident.Eq(1).As("b"), sql: `("a" = 1) AS "b"`},
-		expressionTestCase{val: ident.Eq(1).As("b"), sql: `("a" = ?) AS "b"`,
-			isPrepared: true, args: []interface{}{int64(1)}},
+		expressionTestCase{
+			val: ident.Eq(1).As("b"), sql: `("a" = ?) AS "b"`,
+			isPrepared: true, args: []interface{}{int64(1)},
+		},
 	)
 }
+
 func (esgs *expressionSQLGeneratorSuite) TestGenerate_BooleanExpression() {
 	ae := newTestAppendableExpression(`SELECT "id" FROM "test2"`, emptyArgs, nil, nil)
 	re := regexp.MustCompile("[ab]")
@@ -661,6 +666,7 @@ func (esgs *expressionSQLGeneratorSuite) TestGenerate_BitwiseExpression() {
 		expressionTestCase{val: ident.BitwiseRightShift(1), err: "goqu: bitwise operator 'Right Shift' not supported"},
 	)
 }
+
 func (esgs *expressionSQLGeneratorSuite) TestGenerate_RangeExpression() {
 	betweenNum := exp.NewIdentifierExpression("", "", "a").
 		Between(exp.NewRangeVal(1, 2))
@@ -757,12 +763,12 @@ func (esgs *expressionSQLGeneratorSuite) TestGenerate_UpdateExpression() {
 }
 
 func (esgs *expressionSQLGeneratorSuite) TestGenerate_SQLFunctionExpression() {
-	min := exp.NewSQLFunctionExpression("MIN", exp.NewIdentifierExpression("", "", "a"))
+	minEx := exp.NewSQLFunctionExpression("MIN", exp.NewIdentifierExpression("", "", "a"))
 	coalesce := exp.NewSQLFunctionExpression("COALESCE", exp.NewIdentifierExpression("", "", "a"), "a")
 	esgs.assertCases(
 		sqlgen.NewExpressionSQLGenerator("test", sqlgen.DefaultDialectOptions()),
-		expressionTestCase{val: min, sql: `MIN("a")`},
-		expressionTestCase{val: min, sql: `MIN("a")`, isPrepared: true},
+		expressionTestCase{val: minEx, sql: `MIN("a")`},
+		expressionTestCase{val: minEx, sql: `MIN("a")`, isPrepared: true},
 
 		expressionTestCase{val: coalesce, sql: `COALESCE("a", 'a')`},
 		expressionTestCase{val: coalesce, sql: `COALESCE("a", ?)`, isPrepared: true, args: []interface{}{"a"}},
