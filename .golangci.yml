@@ -118,6 +118,7 @@ issues:
         - gocritic
         - revive
         - gosec
+        - goconst
 
     # https://github.com/go-critic/go-critic/issues/926
     - linters:
