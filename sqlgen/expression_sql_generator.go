@@ -396,13 +396,14 @@ func (esg *expressionSQLGenerator) booleanExpressionSQL(b sb.SQLBuilder, operato
 	esg.Generate(b, operator.LHS())
 	b.WriteRunes(esg.dialectOptions.SpaceRune)
 	operatorOp := operator.Op()
-	if val, ok := esg.dialectOptions.BooleanOperatorLookup[operatorOp]; ok {
+	rhs := operator.RHS()
+
+	if val, ok := esg.dialectOptions.BooleanOperatorLookup[esg.getBooleanExpressionOperator(operator)]; ok {
 		b.Write(val)
 	} else {
-		b.SetError(errUnsupportedBooleanExpressionOperator(operatorOp))
+		b.SetError(errUnsupportedBooleanExpressionOperator(esg.getBooleanExpressionOperator(operator)))
 		return
 	}
-	rhs := operator.RHS()
 
 	if (operatorOp == exp.IsOp || operatorOp == exp.IsNotOp) && rhs != nil && !esg.dialectOptions.BooleanDataTypeSupported {
 		b.SetError(errors.New("boolean data type is not supported by dialect %q", esg.dialect))
@@ -430,6 +431,20 @@ func (esg *expressionSQLGenerator) booleanExpressionSQL(b sb.SQLBuilder, operato
 	}
 
 	b.WriteRunes(esg.dialectOptions.RightParenRune)
+}
+
+func (esg *expressionSQLGenerator) getBooleanExpressionOperator(operator exp.BooleanExpression) exp.BooleanOperation {
+	op := operator.Op()
+	rhs := operator.RHS()
+	if (op == exp.IsOp || op == exp.IsNotOp) && esg.dialectOptions.UseEqForBooleanDataTypes && (rhs == true || rhs == false) {
+		switch op { //nolint: exhaustive
+		case exp.IsOp:
+			return exp.EqOp
+		case exp.IsNotOp:
+			return exp.NeqOp
+		}
+	}
+	return op
 }
 
 // Generates SQL for a BitwiseExpresion (e.g. I("a").BitwiseOr(2) - > "a" | 2)
