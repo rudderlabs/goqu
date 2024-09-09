@@ -1,7 +1,7 @@
 package goqu
 
 import (
-	"github.com/rudderlabs/goqu/goqu/v10/exp"
+	"github.com/rudderlabs/goqu/v10/exp"
 )
 
 type (

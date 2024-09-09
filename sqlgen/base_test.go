@@ -3,7 +3,7 @@ package sqlgen_test
 import (
 	"github.com/stretchr/testify/suite"
 
-	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
+	"github.com/rudderlabs/goqu/v10/internal/sb"
 )
 
 type baseSQLGeneratorSuite struct {

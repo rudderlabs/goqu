@@ -3,10 +3,10 @@ package goqu
 import (
 	"fmt"
 
-	"github.com/rudderlabs/goqu/goqu/v10/exec"
-	"github.com/rudderlabs/goqu/goqu/v10/exp"
-	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
-	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
+	"github.com/rudderlabs/goqu/v10/exec"
+	"github.com/rudderlabs/goqu/v10/exp"
+	"github.com/rudderlabs/goqu/v10/internal/errors"
+	"github.com/rudderlabs/goqu/v10/internal/sb"
 )
 
 type InsertDataset struct {

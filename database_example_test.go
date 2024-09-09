@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/rudderlabs/goqu/goqu/v10"
+	"github.com/rudderlabs/goqu/v10"
 )
 
 func ExampleDatabase_Begin() {

@@ -8,9 +8,9 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/rudderlabs/goqu/goqu/v10"
-	"github.com/rudderlabs/goqu/goqu/v10/dialect/mysql"
-	"github.com/rudderlabs/goqu/goqu/v10/dialect/sqlite3"
+	"github.com/rudderlabs/goqu/v10"
+	"github.com/rudderlabs/goqu/v10/dialect/mysql"
+	"github.com/rudderlabs/goqu/v10/dialect/sqlite3"
 
 	"github.com/stretchr/testify/suite"
 )
