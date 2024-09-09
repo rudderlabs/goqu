@@ -20,11 +20,8 @@ jobs:
     - name: Test
       run: docker compose run goqu-coverage
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        flags: unittests
-        env_vars: OS,MYSQL_VERSION,POSTGRES_VERSION,SQLSERVER_VERSION
-        name: codecov-umbrella
-        fail_ci_if_error: true
+        fail_ci_if_error: false
         verbose: true
