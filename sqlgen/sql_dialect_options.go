@@ -131,6 +131,8 @@ type (
 		AsFragment []byte
 		// The SQL LATERAL fragment used for LATERAL joins
 		LateralFragment []byte
+		// Whether or not to quote identifiers (DEFAULT=true)
+		QuoteIdentifiers bool
 		// The quote rune to use when quoting identifiers(DEFAULT='"')
 		QuoteRune rune
 		// The NULL literal to use when interpolating nulls values (DEFAULT=[]byte("NULL"))
@@ -327,6 +329,13 @@ type (
 	}
 )
 
+func (o *SQLDialectOptions) QuoteRunes() []rune {
+	if o.QuoteIdentifiers {
+		return []rune{o.QuoteRune}
+	}
+	return nil
+}
+
 const (
 	CommonTableSQLFragment = iota
 	SelectSQLFragment
@@ -491,6 +500,7 @@ func DefaultDialectOptions() *SQLDialectOptions {
 		False:                     []byte("FALSE"),
 
 		PlaceHolderFragment: []byte("?"),
+		QuoteIdentifiers:    true,
 		QuoteRune:           '"',
 		StringQuote:         '\'',
 		SetOperatorRune:     '=',
