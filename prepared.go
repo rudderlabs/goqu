@@ -1,9 +1,7 @@
 package goqu
 
-var (
-	// defaultPrepared is controlled by SetDefaultPrepared
-	defaultPrepared bool
-)
+// defaultPrepared is controlled by SetDefaultPrepared
+var defaultPrepared bool
 
 type prepared int
 

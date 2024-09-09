@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/doug-martin/goqu/v9/internal/tag"
+	"github.com/rudderlabs/goqu/goqu/v10/internal/tag"
 )
 
 type (
@@ -77,7 +77,7 @@ func implementsScanner(t reflect.Type) bool {
 	if IsPointer(t.Kind()) {
 		t = t.Elem()
 	}
-	if reflect.PtrTo(t).Implements(scannerType) {
+	if reflect.PointerTo(t).Implements(scannerType) {
 		return true
 	}
 	if !IsStruct(t.Kind()) {

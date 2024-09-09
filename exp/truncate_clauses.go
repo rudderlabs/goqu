@@ -34,6 +34,7 @@ func (tc *truncateClauses) clone() *truncateClauses {
 func (tc *truncateClauses) Table() ColumnListExpression {
 	return tc.tables
 }
+
 func (tc *truncateClauses) SetTable(tables ColumnListExpression) TruncateClauses {
 	ret := tc.clone()
 	ret.tables = tables
@@ -43,6 +44,7 @@ func (tc *truncateClauses) SetTable(tables ColumnListExpression) TruncateClauses
 func (tc *truncateClauses) Options() TruncateOptions {
 	return tc.options
 }
+
 func (tc *truncateClauses) SetOptions(opts TruncateOptions) TruncateClauses {
 	ret := tc.clone()
 	ret.options = opts

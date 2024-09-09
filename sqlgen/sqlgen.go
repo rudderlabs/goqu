@@ -1,6 +1,8 @@
 package sqlgen
 
-import "time"
+import (
+	"time"
+)
 
 var timeLocation = time.UTC
 

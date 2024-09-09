@@ -8,9 +8,9 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
-	"github.com/doug-martin/goqu/v9"
-	"github.com/doug-martin/goqu/v9/dialect/mysql"
-	"github.com/doug-martin/goqu/v9/dialect/sqlite3"
+	"github.com/rudderlabs/goqu/goqu/v10"
+	"github.com/rudderlabs/goqu/goqu/v10/dialect/mysql"
+	"github.com/rudderlabs/goqu/goqu/v10/dialect/sqlite3"
 
 	"github.com/stretchr/testify/suite"
 )
@@ -341,7 +341,7 @@ func (st *sqlite3Suite) TestInsert_returning() {
 	now := time.Now()
 	e := entry{Int: 10, Float: 1.000000, String: "1.000000", Time: now, Bool: true, Bytes: []byte("1.000000")}
 	_, err := ds.Insert().Rows(e).Returning(goqu.Star()).Executor().ScanStruct(&e)
-	st.Error(err)
+	st.NoError(err)
 }
 
 func (st *sqlite3Suite) TestUpdate() {

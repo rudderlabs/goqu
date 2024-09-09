@@ -7,10 +7,10 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/doug-martin/goqu/v9/exp"
-	"github.com/doug-martin/goqu/v9/internal/errors"
-	"github.com/doug-martin/goqu/v9/internal/sb"
-	"github.com/doug-martin/goqu/v9/internal/util"
+	"github.com/rudderlabs/goqu/goqu/v10/exp"
+	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
+	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
+	"github.com/rudderlabs/goqu/goqu/v10/internal/util"
 )
 
 type (
@@ -145,7 +145,7 @@ func (esg *expressionSQLGenerator) reflectSQL(b sb.SQLBuilder, val interface{}) 
 	case util.IsInt(valKind):
 		esg.Generate(b, v.Int())
 	case util.IsUint(valKind):
-		esg.Generate(b, int64(v.Uint()))
+		esg.Generate(b, int64(v.Uint())) //nolint: nolintlint, gosec
 	case util.IsFloat(valKind):
 		esg.Generate(b, v.Float())
 	case util.IsString(valKind):

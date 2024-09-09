@@ -3,8 +3,9 @@ package exp_test
 import (
 	"testing"
 
-	"github.com/doug-martin/goqu/v9/exp"
 	"github.com/stretchr/testify/suite"
+
+	"github.com/rudderlabs/goqu/goqu/v10/exp"
 )
 
 type exTestSuite struct {

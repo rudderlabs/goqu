@@ -9,10 +9,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/doug-martin/goqu/v9"
-	"github.com/doug-martin/goqu/v9/dialect/mysql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/stretchr/testify/suite"
+
+	"github.com/rudderlabs/goqu/goqu/v10"
+	"github.com/rudderlabs/goqu/goqu/v10/dialect/mysql"
 )
 
 const (
