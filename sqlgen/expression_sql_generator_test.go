@@ -9,6 +9,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
+	"github.com/rudderlabs/goqu/goqu/v10"
 	"github.com/rudderlabs/goqu/goqu/v10/exp"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/errors"
 	"github.com/rudderlabs/goqu/goqu/v10/internal/sb"
@@ -1669,6 +1670,13 @@ func (esgs *expressionSQLGeneratorSuite) TestGenerate_ExpressionOrMap() {
 			args:       []interface{}{int64(1), "a", "b", "c"},
 		},
 	)
+}
+
+func (esgs *expressionSQLGeneratorSuite) TestGenerate_ExpressionSQL() {
+	esg := sqlgen.NewExpressionSQLGenerator("test", sqlgen.DefaultDialectOptions())
+	sql, _, err := sqlgen.GenerateExpressionSQL(esg, false, goqu.C("a").Eq(1))
+	esgs.NoError(err)
+	esgs.Equal(`("a" = 1)`, sql)
 }
 
 func TestExpressionSQLGenerator(t *testing.T) {
