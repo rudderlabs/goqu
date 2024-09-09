@@ -251,6 +251,8 @@ type (
 		// 		exp.CrossJoinType:        []byte(" CROSS JOIN "),
 		// 	})
 		JoinTypeLookup map[exp.JoinType][]byte
+		// Whether or not to use Eq operator for boolean data types instead of Is (DEFAULT=false)
+		UseEqForBooleanDataTypes bool
 		// Whether or not boolean data type is supported
 		BooleanDataTypeSupported bool
 		// Whether or not to use literal TRUE or FALSE for IS statements (e.g. IS TRUE or IS 0)
@@ -561,6 +563,7 @@ func DefaultDialectOptions() *SQLDialectOptions {
 
 		TimeFormat: time.RFC3339Nano,
 
+		UseEqForBooleanDataTypes: false,
 		BooleanDataTypeSupported: true,
 		UseLiteralIsBools:        true,
 
