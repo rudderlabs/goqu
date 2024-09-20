@@ -245,6 +245,9 @@ func ExampleC_inOperators() {
 	// using identifiers
 	sql, _, _ := goqu.From("test").Where(goqu.C("a").In("a", "b", "c")).ToSQL()
 	fmt.Println(sql)
+	// with a single element
+	sql, _, _ = goqu.From("test").Where(goqu.C("a").In("a")).ToSQL()
+	fmt.Println(sql)
 	// with a slice
 	sql, _, _ = goqu.From("test").Where(goqu.C("a").In([]string{"a", "b", "c"})).ToSQL()
 	fmt.Println(sql)
@@ -254,12 +257,17 @@ func ExampleC_inOperators() {
 	// with a slice
 	sql, _, _ = goqu.From("test").Where(goqu.C("a").NotIn([]string{"a", "b", "c"})).ToSQL()
 	fmt.Println(sql)
+	// with a subquery
+	sql, _, _ = goqu.From("test").Where(goqu.C("a").NotIn(goqu.Select("a").From("test_b").Expression())).ToSQL()
+	fmt.Println(sql)
 
 	// Output:
 	// SELECT * FROM "test" WHERE ("a" IN ('a', 'b', 'c'))
+	// SELECT * FROM "test" WHERE ("a" IN ('a'))
 	// SELECT * FROM "test" WHERE ("a" IN ('a', 'b', 'c'))
 	// SELECT * FROM "test" WHERE ("a" NOT IN ('a', 'b', 'c'))
 	// SELECT * FROM "test" WHERE ("a" NOT IN ('a', 'b', 'c'))
+	// SELECT * FROM "test" WHERE ("a" NOT IN (SELECT "a" FROM "test_b"))
 }
 
 func ExampleC_likeComparisons() {
