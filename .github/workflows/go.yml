@@ -5,6 +5,9 @@ on:
       - main        # Push events on master branch
       - releases/*  # Push events to branches matching refs/heads/releases/*
   pull_request:     # Specify a second event with pattern matching
+permissions:
+  contents: read
+
 jobs:
   test:
     name: test
@@ -16,16 +19,16 @@ jobs:
       SQLSERVER_VERSION: "2022-latest"
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@v2
+      uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
       with:
         egress-policy: audit
 
     - name: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
     - name: Test
       run: docker compose run goqu-coverage
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4.6.0
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: false
